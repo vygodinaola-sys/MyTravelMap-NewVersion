@@ -110,7 +110,7 @@ The project aims to simplify travel planning and management of personal destinat
 - Interactive 3-step quiz (Travel style, Budget, View preference)
 - Analyzes user preferences to suggest matching destinations
 - Features a progress bar and visual selection cards
-- 
+  
 ✅ **Implemented**
 
 ---
