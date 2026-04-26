@@ -1,0 +1,274 @@
+/* ===============================
+   RESET
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(180deg, #eaf8fd 0%, #4dd3ff 100%);
+    background-attachment: fixed;
+    color: #1f2937;
+}
+
+/* ===============================
+   HEADER (такой же как на других страницах)
+================================ */
+
+.header {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px 30px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold; 
+    font-size: 1.3rem;
+    margin-right: auto;
+}
+
+.logo span {
+    color: #23addb;
+}
+
+.logo-icon {
+    width: 35px;
+    height: 35px;    
+    filter: drop-shadow(0 4px 8px rgba(13, 77, 81, 0.5));
+}
+
+.nav {
+    display: flex;
+    gap: 25px;
+}
+
+.nav a {  
+    text-decoration: none; 
+    color: #04030bab; 
+    font-weight: 700; 
+    transition: color 0.3s;
+    font-size: 18px;
+}
+
+.nav a:hover {
+    color: #23addb;
+}
+
+.nav a.active { 
+    color: #23addb; 
+}
+
+.auth {
+    margin-left: auto; 
+    font-size: 14px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    white-space: nowrap; 
+}
+
+.auth a {
+    text-decoration: none;
+    color: #23addb;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.auth a:hover {
+    background: rgba(35, 173, 219, 0.1); 
+}
+
+.divider {
+    margin: 0 6px;
+    color: #aaa;
+}
+
+/* ===============================
+   HERO
+================================ */
+.hero {
+    text-align: center;
+    padding: 140px 20px 60px; /* 80px header + отступ */
+}
+
+.hero h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2a42cb;
+}
+
+/* ===============================
+   MAP
+================================ */
+#map {
+    height: 65vh;
+    min-height: 500px;
+    margin: 40px 5% 60px;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+}
+
+/* Leaflet popup */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    border-radius: 12px !important;
+}
+
+.popup-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+    max-width: 340px;
+}
+
+.popup-gallery img {
+    width: 110px;
+    height: 82px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ===============================
+   FOOTER
+================================ */
+.footer {
+    background: #e1f4ffcc;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 14px;
+    color: #313439;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 1024px) {
+
+    .header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+
+    .logo {
+        font-size: 1rem;
+        margin-right: 0;
+    }
+
+    .logo-icon {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .auth {
+        order: 2;
+        margin-left: auto;
+        font-size: 14px;
+    }
+
+    .nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .nav a {
+        margin: 5px 6px;
+        font-size: 16px;
+    }
+    
+    .hero {
+        padding: 120px 20px 50px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    #map {
+        margin: 30px 4% 50px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+
+    .logo {
+        font-size: 0.95rem;
+    }
+
+    .logo-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .auth {
+        font-size: 12px;
+    }
+
+    .nav a {
+        font-size: 14px;
+        margin: 4px 3px;
+    }
+
+    .auth {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 110px 15px 40px;
+    }
+
+    .hero h1 {
+        font-size: 20px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    #map {
+        margin: 20px 3% 40px;
+        min-height: 400px;
+    }
+}

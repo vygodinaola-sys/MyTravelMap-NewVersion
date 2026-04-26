@@ -1,0 +1,173 @@
+<!-- Olya Vygodina ID 342714391 -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- META INFORMATION -->
+        <meta charset="UTF-8">
+        <title>My Travel Map - Quiz</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="../CSS/styleQuiz.css">
+
+    </head>
+
+    <body class ="flex-column-container-body">
+        <!-- HEADER -->
+        <header class="flex-container-header">
+
+            <!-- Logo Section -->
+            <div class="flex-container-logo">
+                <img src="../Images/logo-icon.png" alt="Logo" class="logo-icon">
+                <span>My Travel Map</span>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="flex-container-nav">
+                <a href="../index.html">Home</a>
+                <a href="destinations.html">Destinations</a>
+                <a href="my-map.html">My Map</a>
+                <a href="favorites.html">Favorites</a>
+                <a href="about.html">About</a>
+            </nav>
+
+            <!-- Authentication Links -->
+            <div class="flex-container-auth">
+                <a href="login.html">Login</a>
+                <span class="divider">|</span>
+                <a href="signUp.html">Sign Up</a>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-column-container-main">
+
+            <!-- HERO / Intro Section-->
+            <section class="container-section-intro">
+                <h1>Discover Your Travel Style</h1>
+                <h2 class="tagline">What Kind of Traveler Are You?</h2>
+                
+                <!-- Quiz badge label -->
+                <div class="quiz-badge">
+                    Answer a Few Questions
+                </div>
+
+                <!-- Progress bar showing current quiz completion -->
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 25%;"></div>
+                </div>
+
+                <!-- Dynamic question counter updated via JS -->
+                <p id="question-counter" class="step-counter"></p>
+            </section>
+
+            <!-- QUIZ STEPS -->
+            <section class="flex-container-quiz">
+
+                <!-- QUESTION 1 — Who are you traveling with? -->
+                <!-- "active" class makes this step visible on load -->
+                 <article class="quiz-step active" data-step="1">
+                    <h2 class="quiz-question-title">Who are you traveling with?</h2>
+                    
+                    <!-- Selectable image options -->
+                    <div class="quiz-options-wrapper">
+                        <figure class="quiz-media selectable">
+                            <img src="../Images/alone.jpg" alt="Alone" class="quiz-img q1">
+                            <figcaption>Alone</figcaption>
+                        </figure>
+
+                        <figure class="quiz-media selectable">
+                            <img src="../Images/couple.jpg" alt="Couple" class="quiz-img q1">
+                            <figcaption>Couple</figcaption>
+                        </figure>
+
+                        <figure class="quiz-media selectable">
+                            <img src="../Images/family.jpg" alt="Family" class="quiz-img q1">
+                            <figcaption>Family</figcaption>
+                        </figure>
+                    </div>
+
+                    <!-- Navigation — only Next on the first step -->
+                    <div class="quiz-navigation">
+                        <button class="btn-quiz-next">Next</button>
+                    </div>
+                </article>
+
+                <!-- QUESTION 2 — What's your budget? -->
+                <article class="quiz-step" data-step="2">
+                    <h2 class="quiz-question-title">What's your budget?</h2>
+                    
+                    <!-- Text-based selectable option boxes with data attributes used by JS -->
+                    <div class="options">
+                        <article class="option-box selectable" data-value="low" data-count="1">
+                            <div class="icon-container"></div> 
+                                <p>Budget</p>
+                        </article>
+                        
+                        <article class="option-box selectable" data-value="mid" data-count="2">
+                            <div class="icon-container"></div>
+                                <p>Moderate</p>
+                        </article>
+
+                        <article class="option-box selectable" data-value="high" data-count="3">
+                            <div class="icon-container"></div>
+                                <p>Luxury</p>
+                        </article>
+                    </div>
+
+                    <!-- Navigation — Back and Next -->
+                    <div class="quiz-navigation">
+                        <button class="btn-quiz-back">Back</button>
+                        <button class="btn-quiz-next">Next</button>
+                    </div>
+                </article>
+
+                <!-- QUESTION 3 (last) — Preferred destination view -->
+                <article class="quiz-step" data-step="3"> 
+                    <h2 class="quiz-question-title">Which view would you like to see from your window?</h2>
+
+                    <!-- Visual grid of destination options -->
+                    <div class="options-grid-visual">
+                        <figure class="quiz-media selectable">
+                            <img src="../Images/bali.jpg" alt="Bali" class="quiz-img q3">
+                            <figcaption>Tropical Paradise</figcaption>
+                        </figure>
+
+                        <figure class="quiz-media selectable">
+                            <img src="../Images/paris.jpg" alt="Paris" class="quiz-img q3">
+                            <figcaption>Romantic Classics</figcaption>
+                        </figure>
+
+                        <figure class="quiz-media selectable">
+                            <img src="../Images/tokyo.jpg" alt="Tokyo" class="quiz-img q3">
+                            <figcaption>Futuristic Energy</figcaption>
+                        </figure>
+
+                        <figure class="quiz-media selectable">
+                            <img src="../Images/rome.jpg" alt="Rome" class="quiz-img q3">
+                            <figcaption>Ancient History</figcaption>
+                        </figure>
+                    </div>
+
+                    <!-- Navigation — Back and Submit -->
+                    <div class="quiz-navigation">
+                        <button class="btn-quiz-back">Back</button>
+                        <!-- Final button submits the quiz and shows results -->
+                        <button class="btn-quiz-next">Show My Results!</button>
+                    </div>
+                </article>
+
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="flex-container-footer">
+            © 2025 My Travel Map • Web Course Project
+        </footer>
+
+        <!-- Main JS File -->
+        <script src="../JS/quiz.js"></script>
+
+    </body>
+</html>

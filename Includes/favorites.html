@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- META INFORMATION -->
+        <meta charset="UTF-8">
+        <title>My Travel Map - Favorites</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="../CSS/styleFavorites.css">
+
+    </head>
+
+    <body>
+        <!-- HEADER -->
+        <header class="header">
+
+            <!-- Logo Section -->
+            <div class="logo">
+                <img src="../Images/logo-icon.png" alt="Logo" class="logo-icon">
+                <span>My Travel Map</span>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="nav">
+                <a href="../index.html">Home</a>
+                <a href="destinations.html">Destinations</a>
+                <a href="my-map.html">My Map</a>
+                <a href="favorites.html" class="active">Favorites</a>
+                <a href="about.html">About</a>
+            </nav>
+
+            <!-- Authentication Links -->
+            <div class="auth">
+                <a href="login.html">Login</a>
+                <span class="divider">|</span>
+                <a href="signUp.html">Sign Up</a>
+            </div>
+        </header>
+
+        <!-- MAIN LAYOUT -->
+        <main class="app-layout">
+
+            <!-- Sidebar Toggle Button (Mobile) -->
+             <button class="sidebar-toggle">☰</button>
+
+            <!-- SIDEBAR FILTERS -->
+            <aside class="filters">
+                <form id="filterForm">
+                    
+                    <h2>⚙ Filters</h2>
+
+                    <!-- Continent Filter -->
+                    <fieldset id="continentFilter">
+                        <legend>Continent</legend>
+                        <label><input type="checkbox" value="Europe"> Europe</label>
+                        <label><input type="checkbox" value="Asia"> Asia</label>
+                        <label><input type="checkbox" value="North America"> North America</label>
+                    </fieldset>
+
+                    <!-- Category Filter -->
+                    <fieldset id="categoryFilter">
+                        <legend>Category</legend>
+                        <label><input type="checkbox" value="City"> Cities</label>
+                        <label><input type="checkbox" value="Nature"> Nature</label>
+                        <label><input type="checkbox" value="Beach"> Beaches</label>
+                    </fieldset>
+
+                    <!-- Rating Filter -->
+                    <fieldset id="ratingFilter">
+                        <legend>Rating</legend>
+                        <label><input type="checkbox" value="4"> ⭐ 4+ stars</label>
+                        <label><input type="checkbox" value="3"> ⭐ 3+ stars</label>
+                    </fieldset>
+
+                    <!-- Budget Filter -->
+                    <fieldset>
+                        <legend>Budget Level</legend>
+                        <label><input type="radio" name="budget" value="low"> Low</label>
+                        <label><input type="radio" name="budget" value="medium"> Medium</label>
+                        <label><input type="radio" name="budget" value="high"> High</label>
+                    </fieldset>
+
+                    <!-- Sorting Options -->
+                    <fieldset>
+                        <legend>Sort By</legend>
+                        <label><input type="radio" name="sort" value="az"> A-Z</label>
+                        <label><input type="radio" name="sort" value="za"> Z-A</label>
+                    </fieldset>
+
+                    <!-- Filter Buttons -->
+                    <button type="button" id="applyFilters" class="apply-btn">
+                        Apply Filters
+                    </button>
+
+                    <button type="button" id="resetFilters" class="reset-btn">
+                        Reset Filters
+                    </button>
+
+                </form>
+            </aside>
+
+            <!-- CONTENT AREA  -->
+            <section class="content-area">
+
+                <!-- Page Header -->
+                <div class="content-header">
+
+                    <h1>Explore Your Saved Destinations</h1>
+
+                    <p class="intro-text">
+                        Search and organize your favorite places. 
+                        Plan your next adventure with ease
+                    </p>
+
+                    <!-- Search Section -->
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search by destination name...">
+                        <button>Search</button>
+                    </div>
+
+                    <p class="search-hint">
+                            Search works together with filters
+                    </p>
+
+                    <!-- Favorites Counter -->
+                    <p id="favoritesCounter" class="counter-text">
+                        You have 0 saved destinations
+                    </p>
+
+                </div>
+
+                <!-- FAVORITES GRID -->
+                <section class="favorites-grid" id="favoritesGrid">
+
+                    <!-- DESTINATION CARD - Paris -->
+                    <article class="favorite-card" 
+                        data-continent="Europe"
+                        data-category="City"
+                        data-rating="5"
+                        data-budget="medium" 
+                        data-name="Paris">
+
+                        <img src="../Images/paris.jpg" alt="Paris">
+
+                        <div class="card-content">
+                            <h3>Paris</h3>
+                            <span>France</span>
+
+                            <!-- Card Actions -->
+                            <div class="card-actions">
+                                <a href="paris.html" class="btn-details">View Details</a>
+                                <a href="#" title="Not implemented yet" class="btn-map">📍Place on Map</a>
+                                <a href="#" class="btn-remove">🗑 Remove</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Additional cards follow the same structure -->
+
+                    <!-- DESTINATION CARD - Bali -->
+                    <article class="favorite-card"
+                        data-continent="Asia"
+                        data-category="Nature"
+                        data-rating="5"
+                        data-budget="high" 
+                        data-name="Bali">
+
+                        <img src="../Images/bali.jpg" alt="Bali">
+
+                        <div class="card-content">
+                            <h3>Bali</h3>
+                            <span>Indonesia</span>
+                        
+                            <div class="card-actions">
+                                <a href="#" title="Not implemented yet" class="btn-details">View Details</a>
+                                <a href="#" title="Not implemented yet" class="btn-map">📍Place on Map</a>
+                                <a href="#" class="btn-remove">🗑 Remove</a>
+                            </div>
+
+                        </div>
+                    </article>
+
+                    <!-- DESTINATION CARD - Tokyo -->
+                    <article class="favorite-card"
+                        data-continent="Asia" 
+                        data-category="City"
+                        data-rating="5"
+                        data-budget="medium" 
+                        data-name="Tokyo">
+
+                        <img src="../Images/tokyo.jpg" alt="Tokyo">
+
+                        <div class="card-content">
+                            <h3>Tokyo</h3>
+                            <span>Japan</span>
+
+                            <div class="card-actions">
+                                <a href="tokyo.html" class="btn-details">View Details</a>
+                                <a href="#" title="Not implemented yet" class="btn-map">📍Place on Map</a>
+                                <a href="#" class="btn-remove">🗑 Remove</a>
+                            </div>
+
+                        </div>
+                    </article>
+
+                    <!-- DESTINATION CARD - Rome -->
+                    <article class="favorite-card" 
+                        data-continent="Europe"
+                        data-category="City"
+                        data-rating="5"
+                        data-budget="medium" 
+                        data-name="Rome">
+
+                        <img src="../Images/rome.jpg" alt="Rome">
+
+                        <div class="card-content">
+                            <h3>Rome</h3>
+                            <span>Italy</span>
+
+                            <div class="card-actions">
+                                <a href="rome.html" class="btn-details">View Details</a>
+                                <a href="#" title="Not implemented yet" class="btn-map">📍Place on Map</a>
+                                <a href="#" class="btn-remove">🗑 Remove</a>
+                            </div>
+                        </div>
+
+                    </article>
+
+                    <!-- DESTINATION CARD - London -->
+                    <article class="favorite-card" 
+                        data-continent="Europe"
+                        data-category="City"
+                        data-rating="5"
+                        data-budget="high" 
+                        data-name="London">
+
+                        <img src="../Images/london.jpg" alt="London">
+
+                        <div class="card-content">
+                            <h3>London</h3>
+                            <span>England</span>
+
+                            <div class="card-actions">
+                                <a href="london.html" class="btn-details">View Details</a>
+                                <a href="#" title="Not implemented yet" class="btn-map">📍Place on Map</a>
+                                <a href="#" class="btn-remove">🗑 Remove</a>
+                            </div>
+
+                        </div>
+                    </article>
+
+                    <!-- DESTINATION CARD - Beijing -->
+                    <article class="favorite-card" 
+                        data-continent="Asia"
+                        data-category="City"
+                        data-rating="5"
+                        data-budget="high" 
+                        data-name="Beijing">
+
+                        <img src="../Images/beijing.jpg" alt="Beijing">
+
+                        <div class="card-content">
+                            <h3>Beijing</h3>
+                            <span>China</span>
+
+                            <div class="card-actions">
+                                <a href="#" title="Not implemented yet" class="btn-details">View Details</a>
+                                <a href="#" title="Not implemented yet" class="btn-map">📍Place on Map</a>
+                                <a href="#" class="btn-remove">🗑 Remove</a>
+                            </div>
+
+                        </div>
+                    </article>
+
+                    <!-- DESTINATION CARD - New York -->
+                    <article class="favorite-card"
+                        data-continent="North America" 
+                        data-category="City"
+                        data-rating="5"
+                        data-budget="high" 
+                        data-name="New York">
+
+                        <img src="../Images/new-york.jpg" alt="New York">
+
+                        <div class="card-content">
+                            <h3>New York</h3>
+                            <span>USA</span>
+
+                            <div class="card-actions">
+                                <a href="new-york.html" class="btn-details">View Details</a>
+                                <a href="#" title="Not implemented yet" class="btn-map">📍Place on Map</a>
+                                <a href="#" class="btn-remove">🗑 Remove</a>
+                            </div>
+
+                        </div>
+                    </article>
+
+                    <!-- DESTINATION CARD - Barcelona -->
+
+                    <article class="favorite-card" 
+                        data-continent="Europe"
+                        data-category="City"
+                        data-rating="5"
+                        data-budget="high" 
+                        data-name="Barcelona">
+
+                        <img src="../Images/barcelona.jpg" alt="Barcelona">
+
+                        <div class="card-content">
+                            <h3>Barcelona</h3>
+                            <span>Spain</span>
+
+                            <div class="card-actions">
+                                <a href="barcelona.html"class="btn-details">View Details</a>
+                                <a href="#" title="Not implemented yet" class="btn-map">📍Place on Map</a>
+                                <a href="#" class="btn-remove">🗑 Remove</a>
+                            </div>
+
+                        </div>
+                    </article>
+                    
+                </section>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            © 2025 My Travel Map • Web Course Project
+        </footer>
+
+        <!-- Overlay for sidebar (mobile) -->
+        <div class="overlay"></div>
+
+        <!-- jQuery Library -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <!-- Main JS File -->
+        <script src="../JS/favorites.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Map - My Travel Map</title>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/map.css">
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="../Images/logo-icon.png" alt="Logo" class="logo-icon">
+            <span>My Travel Map</span>
+        </div>
+              <nav class="nav">
+                <a href="../index.html" >Home</a>
+                <a href="destinations.html" >Destinations</a>
+                <a href="my-map.html"  class="active">My Map</a>
+                <a href="favorites.html">Favorites</a>
+                <a href="about.html">About</a>
+            </nav>
+        <div class="auth">
+            <a href="login.html">Login</a>
+            <span class="divider">|</span>
+            <a href="signUp.html">Sign Up</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>My Map</h1>
+                <p>Places you have visited - with your personal photos</p>
+            </div>
+        </section>
+        <div id="map"></div>
+    </main>
+
+    <footer class="footer">
+        © 2026 My Travel Map • Web Programming Project
+    </footer>
+
+    <script>
+        const destinations = [
+            { id: "paris",     name: "Paris",     lat: 48.8566, lng:  2.3522 },
+            { id: "tokyo",     name: "Tokyo",     lat: 35.6762, lng: 139.6503 },
+            { id: "rome",      name: "Rome",      lat: 41.9028, lng: 12.4964  },
+            { id: "london",    name: "London",    lat: 51.5074, lng: -0.1278  },
+            { id: "newyork",   name: "New York",  lat: 40.7128, lng: -74.0060 },
+            { id: "barcelona", name: "Barcelona", lat: 41.3851, lng:  2.1734  }
+        ];
+
+        const map = L.map('map').setView([35, 20], 3);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        let visited = JSON.parse(localStorage.getItem('visitedCities') || '[]');
+
+        if (visited.length === 0) {
+            L.marker([40, 30]).addTo(map)
+                .bindPopup("<h3>No places visited yet</h3><p>Go to any destination page and click 'Mark as Visited'</p>")
+                .openPopup();
+        }
+
+        visited.forEach(cityId => {
+            const place = destinations.find(p => p.id === cityId);
+            if (!place) return;
+
+            const photos = JSON.parse(localStorage.getItem(`photos_${cityId}`) || '[]');
+
+            let popupHTML = `<h3>${place.name}</h3>`;
+            if (photos.length > 0) {
+                popupHTML += '<div class="popup-gallery">';
+                photos.forEach(src => {
+                    popupHTML += `<img src="${src}" alt="Personal photo">`;
+                });
+                popupHTML += '</div>';
+            } else {
+                popupHTML += '<p style="color:#777;">No personal photos yet</p>';
+            }
+
+           function getPhotosForCity(cityKey) {
+                try {
+                    return JSON.parse(localStorage.getItem("photos_" + cityKey)) || [];
+                } catch {
+                    return [];
+                }
+            }
+
+            function createPopupHTML(cityName) {
+            const cityKey = cityName.toLowerCase().replace(/\s+/g, "").replace("city", "");
+            const photos = getPhotosForCity(cityKey);
+
+            const photosHTML = photos.length
+                ? photos.map(src => `<img src="${src}" style="width:80px;height:60px;object-fit:cover;border-radius:6px;margin:4px;">`).join("")
+                : `<p style="font-size:12px;color:#666;">No personal photos yet.</p>`;
+
+            return `
+                <div style="min-width:180px">
+                <strong>${cityName}</strong>
+                <div style="display:flex;flex-wrap:wrap;margin-top:6px;">
+                    ${photosHTML}
+                </div>
+                </div>
+            `;
+            }
+        });
+    </script>
+    
+</body>
+</html>
